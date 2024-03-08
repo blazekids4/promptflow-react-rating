@@ -1,4 +1,4 @@
-# Project Title
+# React Frontend with Azure AI Promptflow and AI Search
 
 This project consists of a backend and frontend. The backend is written in Python and the frontend is a React application.
 
