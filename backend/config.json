@@ -1,0 +1,15 @@
+{
+    "flow_name": "promptflow",
+    "flow_inputs": {
+        "query": [
+            "is age protected under the law?",
+            "string"
+        ]
+    },
+    "flow_path": "C:/Users/justinlyons/source/repos/py-test-pf-endpoint/backend/flow/flow.dag.yaml",
+    "is_chat_flow": true,
+    "chat_history_input_name": "chat_history",
+    "label": "Chat",
+    "chat_output_name": "reply",
+    "is_streaming": true
+}
