@@ -5,13 +5,16 @@ import './Chat.css';
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  // Add a new state variable for the thumbs up input
+  const [thumbsUp, setThumbsUp] = useState(null);
+  <><button onClick={() => setThumbsUp(true)}>👍</button><button onClick={() => setThumbsUp(false)}>👎</button></>
 
   const sendMessage = async () => {
     if (input.trim()) {
       const newMessage = { text: input, sender: 'user' };
       setMessages([...messages, newMessage]);
       console.log(messages);
-      const response = await axios.post('http://127.0.0.1:5000/api/chat', { prompt: input, chat_history: messages });
+      const response = await axios.post('http://127.0.0.1:5000/api/chat', { prompt: input, chat_history: messages, thumbs_up: thumbsUp });
 
       const botResponse = { text: response.data.response, sender: 'bot' };
       setMessages([...messages, newMessage, botResponse]);
@@ -37,9 +40,11 @@ const Chat = () => {
           placeholder="Type a message..."
         />
         <button onClick={sendMessage}>SEND</button>
+        <button onClick={() => setThumbsUp(true)}>👍</button> {/* New button for thumbs up */}
+        <button onClick={() => setThumbsUp(false)}>👎</button> {/* New button for thumbs down */}
       </div>
     </div>
   );
-};
+}
 
 export default Chat;
