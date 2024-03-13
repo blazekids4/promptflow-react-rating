@@ -38,7 +38,7 @@ def chat():
     
     # Retrieve the chat history for the current session
     chat_history = ChatMessage.query.filter_by(session_id=session_id).all()
-    
+    print('Chat history:', chat_history)
     if prompt:
         # Save the user's input as a chat message
         user_message = ChatMessage(session_id=session_id, message_type='user_input', content=prompt, created_at=datetime.now())
@@ -68,9 +68,9 @@ def rate_chat():
     print('Session ID:', session_id)
     print('Thumbs up:', thumbs_up)
 
-    # Retrieve the last message in the chat session
-    last_message = ChatMessage.query.filter_by(session_id=session_id).order_by(ChatMessage.created_at.desc()).first()
-
+    # Retrieve the last message of type 'llm_response' in the chat session
+    last_message = ChatMessage.query.filter_by(message_type='llm_response').order_by(ChatMessage.created_at.desc()).first()    
+    
     print('Last message:', last_message)
     
     if last_message:
