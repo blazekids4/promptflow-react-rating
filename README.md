@@ -2,6 +2,9 @@
 
 This project consists of a backend and frontend. The backend is written in Python and the frontend is a React application.
 
+## Demo
+[Demo on Youtube](https://youtube.com/shorts/_LFgjacl-_Q?si=BZkllhbPlAq1qgQk)
+
 ## Backend
 
 The backend is located in the `backend/` directory. It uses a flow-based approach to handle chat conversations, with each step of the flow defined in the `backend/flow/` directory. The flow is defined in `backend/flow/flow.dag.yaml`.
