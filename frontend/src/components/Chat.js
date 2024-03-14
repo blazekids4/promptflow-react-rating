@@ -5,17 +5,53 @@ import './Chat.css';
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [sessionId, setSessionId] = useState(null);
+  const [rating, setRating] = useState(null); // New state variable for the rating
+
+
+  const startNewSession = async () => {
+    setMessages([]); // Clear existing messages
+    setSessionId(null); // Reset the session ID
+  };
 
   const sendMessage = async () => {
     if (input.trim()) {
+      if (!sessionId) {
+        // If there's no session ID, create a new session
+        const sessionResponse = await axios.post('http://127.0.0.1:5000/api/chat/session');
+        setSessionId(sessionResponse.data.session_id);
+      }
+
       const newMessage = { text: input, sender: 'user' };
       setMessages([...messages, newMessage]);
-      console.log(messages);
-      const response = await axios.post('http://127.0.0.1:5000/api/chat', { prompt: input, chat_history: messages });
+
+      const response = await axios.post('http://127.0.0.1:5000/api/chat', {
+        prompt: input,
+        session_id: sessionId, // Include the session ID in the request
+            });
 
       const botResponse = { text: response.data.response, sender: 'bot' };
       setMessages([...messages, newMessage, botResponse]);
       setInput('');
+    }
+  };
+
+  const rateResponse = async (thumbsUp) => {
+    console.log('Rating response:', thumbsUp);
+    if (sessionId) {
+      try {
+        await axios.post('http://127.0.0.1:5000/api/chat/rate', {
+          session_id: sessionId,
+          thumbs_up: thumbsUp
+        });
+        console.log(`You have given a thumbs ${thumbsUp ? 'up' : 'down'}`);
+        alert(`You have given a thumbs ${thumbsUp ? 'up' : 'down'}`);
+        setRating(thumbsUp ? 'up' : 'down'); // Update the rating state
+      } catch (error) {
+        console.error('Error rating the response:', error);
+      }
+    } else {
+      console.log('No session ID available to rate the response');
     }
   };
 
@@ -33,13 +69,16 @@ const Chat = () => {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+          onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
           placeholder="Type a message..."
         />
-        <button onClick={sendMessage}>SEND</button>
+        <button onClick={sendMessage}>send</button>
+        <button onClick={() => rateResponse(true)}>👍</button>
+        <button onClick={() => rateResponse(false)}>👎</button>   
+        <button onClick={startNewSession}>reset</button>
       </div>
     </div>
   );
-};
+}
 
 export default Chat;
