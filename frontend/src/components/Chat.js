@@ -9,11 +9,18 @@ const Chat = () => {
   const [rating, setRating] = useState(null); // New state variable for the rating
 
 
-  const startNewSession = async () => {
-    setMessages([]); // Clear existing messages
-    setSessionId(null); // Reset the session ID
-  };
+const startNewSession = async () => {
+  setMessages([]); // Clear existing messages
+  setSessionId(null); // Reset the session ID
 
+  // Call API endpoint to start a new session
+  try {
+    const sessionResponse = await axios.post('http://127.0.0.1:5000/api/chat/session');
+    setSessionId(sessionResponse.data.session_id);
+  } catch (error) {
+    console.error('Error starting a new session:', error);
+  }
+};
   const sendMessage = async () => {
     if (input.trim()) {
       if (!sessionId) {
