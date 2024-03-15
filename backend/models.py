@@ -2,18 +2,28 @@ from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, Enum, Bool
 from sqlalchemy.orm import  relationship, Mapped
 from typing import List, Optional
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
 
 db = SQLAlchemy()
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id: Mapped[int] = Column(Integer, primary_key=True)
+    username: Mapped[str] = Column(String(30), unique=True)  # New username field
     name: Mapped[str] = Column(String(30))
     fullname: Mapped[Optional[str]] = Column(String(30), nullable=True)
     email: Mapped[str] = Column(String(30))
+    password_hash: Mapped[str] = Column(String(528))  # Store hashed passwords
     organization: Mapped[str] = Column(String(30))
     role: Mapped[str] = Column(Enum('hr-compliance', 'hr-employee-relations', 'hr-recruiting', name='user_roles'))
     chat_sessions: Mapped[List["ChatSession"]] = relationship("ChatSession", back_populates="user")
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
 class ChatSession(db.Model):
     __tablename__ = 'chat_sessions'
