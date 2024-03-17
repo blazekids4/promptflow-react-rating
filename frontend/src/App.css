@@ -1,12 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 .App {
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  justify-content: flex-start; /* Align content to the start */
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow-x: hidden;
 }
 
 .App-header {
-  width: 100%;
-  box-sizing: border-box;
+  width: 100%; /* Ensure the header takes the full width */
+  background-color: #FF6B6B; /* Primary color */
+  height: 60px; /* Adjust as needed */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #1A535C; /* Text color */
+  padding: 0 20px;
+}
+
+
+.App-header h1 {
+  margin: 0;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  background-color: #4ECDC4; /* Secondary color */
+  color: #1A535C; /* Text color */
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.nav-button.active {
+  background-color: #FFE66D; /* Accent color */
 }

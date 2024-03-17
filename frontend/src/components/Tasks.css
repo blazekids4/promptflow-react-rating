@@ -1,0 +1,123 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    min-height: 500px;
+    max-height: 600px;
+    background-color: #F7FFF7;
+    border: 2px solid #4ECDC4;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.task-header {
+    width: 100%;
+    background-color: #FF6B6B;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1A535C;
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+
+.task-input, .journal-input {
+    width: 100%;
+    border: 1px solid #4ECDC4;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-inline-start: 10px;
+    min-height: 40px;
+    height: fit-content;
+}
+
+.add-task-button, .add-journal-button {
+    padding: 10px;
+    border: 1px solid #4ECDC4;
+    border-radius: 5px;
+    background-color: #FF6B6B;
+    color: white;
+    margin: 10px 0;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list-item {
+    padding: 10px;
+    border: 1px solid #4ECDC4;
+    border-radius: 5px;
+    background-color: #FF6B6B;
+    color: white;
+    margin-bottom: 10px;
+    font-size:x-large;
+}
+
+.complete-task-button {
+    padding: 10px;
+    border: 1px solid #4ECDC4;
+    border-radius: 5px;
+    background-color: #FF6B6B;
+    color: #1A535C;
+    font-weight: 500;
+    margin: 10px;
+}
+
+.completed-task, .journal-entry, .journal-text {
+    padding: 10px;
+    border: 1px solid #4ECDC4;
+    border-radius: 5px;
+    background-color: #F7FFF7;
+    color: #1A535C;
+    margin-bottom: 10px;
+}
+
+.journal-task {
+    padding: 10px;
+    border: 1px solid #4ECDC4;
+    border-radius: 5px;
+    background-color: #FF6B6B;
+    color: #1A535C;
+    margin-bottom: 10px;
+}
+
+.check-in-task-button {
+    padding: 10px;
+    border: 1px solid #4ECDC4;
+    border-radius: 5px;
+    background-color: #FF6B6B;
+    color: white;
+    margin: 10px 0;
+}
+
+.reset-button {
+    padding: 10px;
+    border: 1px solid #4ECDC4;
+    border-radius: 5px;
+    background-color: #FF6B6B;
+    color: white;
+    margin: 10px 10px;
+}
+
+.completed-tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .completed-tasks-table th, .completed-tasks-table td {
+    border: 1px solid #4ECDC4;
+    padding: 10px;
+    text-align: left;
+    font-size: small;
+  }
+  
+  .completed-tasks-table th {
+    background-color: #FF6B6B;
+    color: white;
+  }

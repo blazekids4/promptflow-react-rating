@@ -5,10 +5,10 @@ def format_conversation(history: list, maxTokens: int) -> str:
     result = ""
     conversation_history = []
     for history_item in history:
-        speaker = "user" if history_item["sender"] == "user" else "assistant"
+        speaker = "user" if history_item.message_type == "user_input" else "assistant"
         conversation_history.append({
             "speaker": speaker,
-            "message": history_item["text"]
+            "message": history_item.content
         })
 
     # Start using context from history, starting from most recent, until token limit is reached.

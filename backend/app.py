@@ -1,17 +1,78 @@
-from flask import Flask, request, jsonify
+from flask import Flask, redirect, request, jsonify, send_from_directory
 from main import handle_prompt  # Assuming you have a function `handle_prompt` in your `main.py`
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from models import db, User, ChatSession, ChatMessage, Rating
+from chat_routes import chat_blueprint
 from datetime import datetime
+from flask_login import login_user, logout_user, login_required, LoginManager, UserMixin
+from werkzeug.security import generate_password_hash
+from flask_migrate import Migrate
 
-app = Flask(__name__)
-CORS(app)
+
+app = Flask(__name__, static_folder='../build', static_url_path='/')  # Adjust static_folder as needed
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:jmlgbb24@localhost:5432/genai_chat_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'your_secret_key'
 
 db.init_app(app)
+migrate = Migrate(app, db)
+
+app.register_blueprint(chat_blueprint)
+
+@app.route('/signup', methods=['POST'])
+def signup():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+    email = data.get('email')
+    name = data.get('name')
+
+    # Check if username or email already exists
+    existing_user = User.query.filter((User.username == username) | (User.email == email)).first()
+    if existing_user:
+        return jsonify(message="Username or Email already exists"), 400
+
+    hashed_password = generate_password_hash(password)
+    new_user = User(username=username, password_hash=hashed_password, email=email, name=name)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify(message="User created"), 200
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.json
+    username = data.get('username')
+    password = data.get('password')
+
+    user = User.query.filter_by(username=username).first()
+
+    if user is None or not user.check_password(password):
+        return jsonify({'message': 'Invalid username or password'}), 401
+
+    login_user(user)
+    return jsonify({'message': 'Logged in successfully'}), 200
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect('/')  # Redirect to the root, which will be handled by your React app
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def index(path):
+    return send_from_directory(app.static_folder, 'index.html')
 
     
 @app.route('/api/chat/session', methods=['POST'])
