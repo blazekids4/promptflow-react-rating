@@ -84,10 +84,10 @@ const Chat = () => {
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
             placeholder="Type a message..."
           />
-          <button onClick={sendMessage}>send</button>
+          <button onClick={sendMessage}>SEND</button>
           <button onClick={() => rateResponse(true)}>👍</button>
           <button onClick={() => rateResponse(false)}>👎</button>
-          <button onClick={startNewSession}>reset</button>
+          <button onClick={startNewSession}>RESET</button>
         </div>
       </div>
       <div id="task-container" className="task-container">

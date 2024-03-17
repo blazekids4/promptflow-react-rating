@@ -95,8 +95,10 @@
     margin: 5px;
     border: none;
     font-weight: bold;
-    border-radius: 5px;;
-    background-color: #FFE66D; /* Accent color */
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FF6B6B;
     color: #1A535C; /* Text color */
     cursor: pointer;
   }

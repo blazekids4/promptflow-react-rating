@@ -10,7 +10,7 @@ inputs:
     is_chat_history: true
   query:
     type: string
-    default: tell me a wise parable?
+    default: is age protected under the law?
     is_chat_input: true
 outputs:
   reply:
@@ -65,7 +65,7 @@ nodes:
     embeddingModelConnection: aoai-sk-e2e-westus-1
     vectorFields: contentVector
     embeddingModelName: text-embedding-ada-002
-    indexName: kind-rocket-biblical
+    indexName: hr-compliance-aisearch-index
     queries: ${ExtractIntent.output.search_intents}
     queryType: vectorSimpleHybrid
     semanticConfiguration: None

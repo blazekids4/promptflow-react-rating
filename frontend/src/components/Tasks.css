@@ -3,39 +3,31 @@
     flex-direction: column;
     width: 100%;
     max-width: 900px;
-    min-height: 500px; /* Adjust as needed */
-    max-height: 600px; /* Adjust as needed */
-    background-color: #F7FFF7; /* Background color */
-    border-color: #4ECDC4;
-    border-width: 2px;
-    border-style: solid;
+    min-height: 500px;
+    max-height: 600px;
+    background-color: #F7FFF7;
+    border: 2px solid #4ECDC4;
     border-radius: 10px;
-    margin: 20px auto; /* Added auto to center the container */
+    margin: 20px auto;
     padding: 10px;
-    overflow-y: auto; /* Allows scrolling if content exceeds max-height */
-  }
+    overflow-y: auto;
+}
 
-  .task-header {
-    width: 100%; /* Ensure the header takes the full width */
-    background-color: #FF6B6B; /* Primary color */
-    height: 60px; /* Adjust as needed */
+.task-header {
+    width: 100%;
+    background-color: #FF6B6B;
+    height: 60px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: #1A535C; /* Text color */
+    color: #1A535C;
     padding: 0 20px;
     margin-bottom: 10px;
-  }
-  
-  
-  .App-header h1 {
-    margin: 0;
-  }
+}
 
-.task-input {
+.task-input, .journal-input {
     width: 100%;
-    border: 1px solid #4ECDC4; /* Secondary color */
+    border: 1px solid #4ECDC4;
     border-radius: 5px;
     margin-bottom: 10px;
     padding-inline-start: 10px;
@@ -43,13 +35,13 @@
     height: fit-content;
 }
 
-.add-task-button {
+.add-task-button, .add-journal-button {
     padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
+    border: 1px solid #4ECDC4;
     border-radius: 5px;
-    background-color: #FF6B6B; /* Primary color */
-    color: white; /* Text color */
-    margin-bottom: 10px;
+    background-color: #FF6B6B;
+    color: white;
+    margin: 10px 0;
 }
 
 .task-list {
@@ -59,83 +51,73 @@
 
 .task-list-item {
     padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
+    border: 1px solid #4ECDC4;
     border-radius: 5px;
-    background-color: #FF6B6B; /* Primary color */
-    color: white; /* Text color */
+    background-color: #FF6B6B;
+    color: white;
     margin-bottom: 10px;
     font-size:x-large;
 }
 
 .complete-task-button {
     padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
+    border: 1px solid #4ECDC4;
     border-radius: 5px;
-    background-color: #FF6B6B; /* Primary color */
-    color: #1A535C; /* Text color */
+    background-color: #FF6B6B;
+    color: #1A535C;
     font-weight: 500;
     margin: 10px;
-
 }
 
-.journal-button {
+.completed-task, .journal-entry, .journal-text {
     padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
+    border: 1px solid #4ECDC4;
     border-radius: 5px;
-    background-color: #FF6B6B; /* Primary color */
-    color: white; /* Text color */
-    margin-bottom: 10px;
-}
-
-.completed-task {
-    padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
-    border-radius: 5px;
-    background-color: #F7FFF7; /* Background color */
-    color: #1A535C; /* Text color */
-    margin-bottom: 10px;
-}
-
-.journal-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.add-journal-button {
-    padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
-    border-radius: 5px;
-    background-color: #FF6B6B; /* Primary color */
-    color: white; /* Text color */
-    margin-bottom: 10px;
-}
-
-.journal-entry {
-    padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
-    border-radius: 5px;
-    background-color: #F7FFF7; /* Background color */
-    color: #1A535C; /* Text color */
+    background-color: #F7FFF7;
+    color: #1A535C;
     margin-bottom: 10px;
 }
 
 .journal-task {
     padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
+    border: 1px solid #4ECDC4;
     border-radius: 5px;
-    background-color: #FF6B6B; /* Primary color */
-    color: #1A535C; /* Text color */
+    background-color: #FF6B6B;
+    color: #1A535C;
     margin-bottom: 10px;
 }
 
-.journal-text {
+.check-in-task-button {
     padding: 10px;
-    border: 1px solid #4ECDC4; /* Secondary color */
+    border: 1px solid #4ECDC4;
     border-radius: 5px;
-    background-color: #F7FFF7; /* Background color */
-    color: #1A535C; /* Text color */
-    margin-bottom: 10px;
+    background-color: #FF6B6B;
+    color: white;
+    margin: 10px 0;
 }
+
+.reset-button {
+    padding: 10px;
+    border: 1px solid #4ECDC4;
+    border-radius: 5px;
+    background-color: #FF6B6B;
+    color: white;
+    margin: 10px 10px;
+}
+
+.completed-tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .completed-tasks-table th, .completed-tasks-table td {
+    border: 1px solid #4ECDC4;
+    padding: 10px;
+    text-align: left;
+    font-size: small;
+  }
+  
+  .completed-tasks-table th {
+    background-color: #FF6B6B;
+    color: white;
+  }
