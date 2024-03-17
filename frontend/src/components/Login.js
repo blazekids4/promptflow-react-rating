@@ -1,12 +1,55 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-bottom: 100px;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+`;
+
+const Input = styled.input`
+  margin: 10px 0;
+  padding: 10px;
+  width: 200px;
+`;
+
+const Button = styled.button`
+  margin: 10px 0;
+  padding: 10px;
+  width: 220px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const Error = styled.div`
+  color: red;
+`;
+
 const Login = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
+  const [isSignup, setIsSignup] = useState(false);
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -45,71 +88,23 @@ const Login = ({ onLoginSuccess }) => {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      <h2>Create Account</h2>
-      <form onSubmit={handleSignup}>
-        <div>
-          <label htmlFor="new-username">Username:</label>
-          <input
-            type="text"
-            id="new-username"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="new-password">Password:</label>
-          <input
-            type="password"
-            id="new-password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
-        </div>
-        <button type="submit">Create Account</button>
-      </form>
-    </div>
+    <><div>
+      Login to Chatbot
+    </div><Container>
+        <Form onSubmit={isSignup ? handleSignup : handleLogin}>
+          <Input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required />
+          <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required />
+          {isSignup && (
+            <>
+              <Input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} required />
+              <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
+            </>
+          )}
+          <Button type="submit">{isSignup ? 'Sign Up' : 'Log In'}</Button>
+          <Button type="button" onClick={() => setIsSignup(!isSignup)}>{isSignup ? 'Log In Instead' : 'Sign Up Instead'}</Button>
+          {error && <Error>{error}</Error>}
+        </Form>
+      </Container></>
   );
 };
 

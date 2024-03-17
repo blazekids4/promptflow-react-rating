@@ -1,49 +1,86 @@
+.master-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.task-container {
+  width: 100%;
+  max-width: 1000px;
+  height: 50vh;
+  background-color: #F7FFF7;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px auto;
+  overflow-y: auto;
+}
+
+
 .chat-container {
-    width: 80%;
-    max-width: 600px;
-    background-color: #292929;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 900px;
+  min-height: 500px; /* Adjust as needed */
+  max-height: 600px; /* Adjust as needed */
+  background-color: #F7FFF7; /* Background color */
+  border-color: #4ECDC4;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 20px auto; /* Added auto to center the container */
+  padding: 10px;
+  overflow-y: auto; /* Allows scrolling if content exceeds max-height */
+}
+
+.messages {
+  height: 600px;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center; /* Added to center the messages */
+  align-items: center; /* Added to center the messages */
+  color: #1A535C; /* Text color */
+}
   
-  .messages {
-    height: 600px;
-    overflow-y: auto;
-    padding: 10px;
-    display: flex;
-    text-align: left;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .message {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+.message {
+  background-color: #FF6B6B; /* Primary color */
+  color: #1A535C; /* Text color */
+  padding: 20px;
+  border-radius: 10px;
   }
   
   .message.user {
     align-self: flex-end;
-    background-color: #00ADEF;
-    color: white;
+    background-color: #FF6B6B; /* Primary color */
+    color: #1A535C; /* Text color */
     margin: 10px;
   }
-  
+
   .message.bot {
     align-self: flex-start;
     margin: 10px;
-    background-color: #F1511B;
-    color: white;
+    background-color: #4ECDC4; /* Secondary color */
+    color: #1A535C; /* Text color */
   }
-  
+
   .input-area {
     display: flex;
+    flex-shrink: 0;
     border-top: 1px solid #ccc;
     margin-top: 10px;
   }
-  
+
   .input-area input {
     flex: 1;
     padding: 10px;
@@ -52,18 +89,18 @@
     border-radius: 5px;
     outline: none;
   }
-  
+
   .input-area button {
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
     border: none;
     font-weight: bold;
     border-radius: 5px;;
-    background-color: white;
-    color: 292929;
+    background-color: #FFE66D; /* Accent color */
+    color: #1A535C; /* Text color */
     cursor: pointer;
   }
-  
+
   .loading-spinner {
     border: 4px solid #f3f3f3;
     border-radius: 50%;
@@ -72,7 +109,7 @@
     height: 30px;
     animation: spin 2s linear infinite;
     align-self: center;
-  }
+  }  
   
   @keyframes spin {
     0% { transform: rotate(0deg); }

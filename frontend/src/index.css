@@ -5,9 +5,41 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F7FFF7; /* Background color */
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* App */
+
+h1 {
+  font-size: 2.5rem;
+  color: #1A535C; /* Text color */
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #1A535C; /* Text color */
+  margin: 20px 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #1A535C; /* Text color */
+  margin: 20px 0;
+}
+
+h4 {
+  font-size: 1.2rem;
+  color: #1A535C; /* Text color */
+  margin: 20px 0;
+}
+
+h5 {
+  font-size: 1rem;
+  color: #1A535C; /* Text color */
+  margin: 20px 0;
 }

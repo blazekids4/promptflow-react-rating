@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import Chat from './components/Chat';
 import Login from './components/Login';
+
 import './App.css';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
   const handleLoginSuccess = () => {
-    setIsLoggedIn(true);
+    setUser(true);
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Chatbot</h1>
+        <h3>Chat</h3>
       </header>
-      {isLoggedIn ? (
+      {user ? (  // Check if user is logged in
         <Chat />
       ) : (
         <Login onLoginSuccess={handleLoginSuccess} />
