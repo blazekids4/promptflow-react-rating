@@ -8,6 +8,7 @@ const Chat = () => {
   const [input, setInput] = useState("");
   const [sessionId, setSessionId] = useState(null);
   const [rating, setRating] = useState(null); // New state variable for the rating
+  const [context, setContext] = useState("context1");
 
   const startNewSession = async () => {
     setMessages([]); // Clear existing messages
@@ -39,6 +40,7 @@ const Chat = () => {
       const response = await axios.post("http://127.0.0.1:5000/api/chat", {
         prompt: input,
         session_id: sessionId, // Include the session ID in the request
+        context: context, // Include the selected context in the request
       });
 
       const botResponse = { text: response.data.response, sender: "bot" };
@@ -77,6 +79,11 @@ const Chat = () => {
           ))}
         </div>
         <div className="input-area">
+          <select onChange={(e) => setContext(e.target.value)}>
+            <option value="context1">Context 1</option>
+            <option value="context2">Context 2</option>
+            {/* Add more options as needed */}
+          </select>
           <input
             type="text"
             value={input}
@@ -91,9 +98,9 @@ const Chat = () => {
         </div>
       </div>
       <div id="task-container" className="task-container">
-      <header className="task-header">
-        <h3>Tasks</h3>
-      </header>
+        <header className="task-header">
+          <h3>Tasks</h3>
+        </header>
         <Tasks sessionId={sessionId} />
       </div>
     </div>

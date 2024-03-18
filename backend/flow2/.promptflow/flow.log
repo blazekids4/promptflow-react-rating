@@ -1,0 +1,16 @@
+2024-03-07 14:38:10 -0600    1764 execution.flow     INFO     Start executing nodes in thread pool mode.
+2024-03-07 14:38:10 -0600    1764 execution.flow     INFO     Start to run 7 nodes with concurrency level 16.
+2024-03-07 14:38:10 -0600    1764 execution.flow     INFO     Executing node DetermineIntent. node run id: f8748fa7-c4a3-40ba-803b-03a9a7c2f1e7_DetermineIntent_0
+2024-03-07 14:38:10 -0600    1764 execution.flow     INFO     Executing node FormatConversation. node run id: f8748fa7-c4a3-40ba-803b-03a9a7c2f1e7_FormatConversation_0
+2024-03-07 14:38:10 -0600    1764 execution.flow     INFO     Node FormatConversation completes.
+2024-03-07 14:38:11 -0600    1764 execution.flow     INFO     Node DetermineIntent completes.
+2024-03-07 14:38:11 -0600    1764 execution.flow     INFO     Executing node ExtractIntent. node run id: f8748fa7-c4a3-40ba-803b-03a9a7c2f1e7_ExtractIntent_0
+2024-03-07 14:38:11 -0600    1764 execution.flow     INFO     Node ExtractIntent completes.
+2024-03-07 14:38:11 -0600    1764 execution.flow     INFO     Executing node RetrieveDocuments. node run id: f8748fa7-c4a3-40ba-803b-03a9a7c2f1e7_RetrieveDocuments_0
+2024-03-07 14:38:17 -0600    1764 execution.flow     INFO     Node RetrieveDocuments completes.
+2024-03-07 14:38:17 -0600    1764 execution.flow     INFO     Executing node FormatRetrievedDocuments. node run id: f8748fa7-c4a3-40ba-803b-03a9a7c2f1e7_FormatRetrievedDocuments_0
+2024-03-07 14:38:17 -0600    1764 execution.flow     INFO     Node FormatRetrievedDocuments completes.
+2024-03-07 14:38:17 -0600    1764 execution.flow     INFO     Executing node DetermineReply. node run id: f8748fa7-c4a3-40ba-803b-03a9a7c2f1e7_DetermineReply_0
+2024-03-07 14:38:20 -0600    1764 execution.flow     INFO     Node DetermineReply completes.
+2024-03-07 14:38:20 -0600    1764 execution.flow     INFO     Executing node FormatReply. node run id: f8748fa7-c4a3-40ba-803b-03a9a7c2f1e7_FormatReply_0
+2024-03-07 14:38:20 -0600    1764 execution.flow     INFO     Node FormatReply completes.

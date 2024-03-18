@@ -89,14 +89,15 @@ def chat():
     prompt = data.get('prompt')
     session_id = data.get('session_id')  # Get session_id from request data
     thumbs_up = data.get('thumbs_up')
-    
+    context = data.get('context')  # Get context from request data
+
     # Create a new chat session if none exists
     if not session_id:
         chat_session = ChatSession(created_at=datetime.now(), updated_at=datetime.now())
         db.session.add(chat_session)
         db.session.commit()
         session_id = chat_session.id
-    
+
     # Retrieve the chat history for the current session
     chat_history = ChatMessage.query.filter_by(session_id=session_id).all()
     print('Chat history:', chat_history)
@@ -107,7 +108,7 @@ def chat():
         db.session.commit()
 
         # Get the response from the handle_prompt function
-        response = handle_prompt(prompt, chat_history, thumbs_up)
+        response = handle_prompt(prompt, chat_history, thumbs_up, context)  # Pass context to handle_prompt
 
         # Save the LLM response as a chat message
         llm_message = ChatMessage(session_id=session_id, message_type='llm_response', content=response, created_at=datetime.now())
