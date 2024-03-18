@@ -3,7 +3,7 @@
 This project consists of a backend and frontend. The backend is written in Python and the frontend is a React application.
 
 ## Demo
-[Demo on Youtube](https://youtube.com/shorts/_LFgjacl-_Q?si=BZkllhbPlAq1qgQk)
+[Demo on Youtube](https://youtu.be/V6fkkBlsQs0?si=Ud32C8qu-2qhcKUN)
 
 ## Backend
 
