@@ -5,7 +5,7 @@ from pathlib import Path
 from promptflow import load_flow
 
 # Load configuration
-with open(Path(__file__).parent / "config2.json", "r") as f:
+with open(Path(__file__).parent / "config1.json", "r") as f:
     config = json.load(f)
     flow_path = config["flow_path"]
     is_streaming = config["is_streaming"]
@@ -14,7 +14,7 @@ with open(Path(__file__).parent / "config2.json", "r") as f:
 if flow_path:
     flow = Path(flow_path)
 else:
-    flow = Path(__file__).parent / "flow2"
+    flow = Path(__file__).parent / "flow"
 if flow.is_dir():
     os.chdir(flow)
 else:

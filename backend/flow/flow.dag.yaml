@@ -10,7 +10,7 @@ inputs:
     is_chat_history: true
   query:
     type: string
-    default: tell me a wise parable?
+    default: is age protected under the law?
     is_chat_input: true
 outputs:
   reply:
@@ -43,7 +43,7 @@ nodes:
     frequency_penalty: 0
     chat_history: ${inputs.chat_history}
     query: ${inputs.query}
-  connection: aoai-sk-e2e-westus-1
+  # connection: aoai-sk-e2e-westus-1  -- CHANGE THIS TO YOUR CONNECTION NAME
   api: chat
   use_variants: false
 - name: ExtractIntent
@@ -61,11 +61,11 @@ nodes:
     type: code
     path: RetrieveDocuments.py
   inputs:
-    searchConnection: ai-search-sk-e2e-chatbot
-    embeddingModelConnection: aoai-sk-e2e-westus-1
+    # searchConnection: ai-search-sk-e2e-chatbot --CHANGE THIS TO YOUR CONNECTION NAME
+    # embeddingModelConnection: aoai-sk-e2e-westus-1  -- CHANGE THIS TO YOUR CONNECTION NAME
     vectorFields: contentVector
     embeddingModelName: text-embedding-ada-002
-    indexName: kind-rocket-biblical
+    # indexName: hr-compliance-aisearch-index   -- CHANGE THIS TO YOUR INDEX NAME
     queries: ${ExtractIntent.output.search_intents}
     queryType: vectorSimpleHybrid
     semanticConfiguration: None
@@ -106,7 +106,7 @@ nodes:
     conversation: ${FormatConversation.output}
     documentation: ${FormatRetrievedDocuments.output}
     user_query: ${ExtractIntent.output.current_message_intent}
-  connection: aoai-sk-e2e-westus-1
+  # connection: aoai-sk-e2e-westus-1 -- CHANGE THIS TO YOUR CONNECTION NAME
   api: chat
   use_variants: false
 - name: FormatReply

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Tasks from "./Tasks";
 import "./Chat.css";
 
 const Chat = () => {
@@ -96,12 +95,6 @@ const Chat = () => {
           <button onClick={() => rateResponse(false)}>👎</button>
           <button onClick={startNewSession}>RESET</button>
         </div>
-      </div>
-      <div id="task-container" className="task-container">
-        <header className="task-header">
-          <h3>Tasks</h3>
-        </header>
-        <Tasks sessionId={sessionId} />
       </div>
     </div>
   );

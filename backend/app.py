@@ -13,7 +13,7 @@ from flask_migrate import Migrate
 app = Flask(__name__, static_folder='../build', static_url_path='/')  # Adjust static_folder as needed
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:jmlgbb24@localhost:5432/genai_chat_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = ''
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'your_secret_key'
 

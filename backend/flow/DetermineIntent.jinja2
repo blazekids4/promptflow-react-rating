@@ -1,8 +1,8 @@
 system:
-You are provided with two sentences, the first line is the intent of the user's previous request, the second line is the user's current message.
+You are provided with two sentences, first line is the intent of user's previous request, second line is the user's current message.
 You must generate the intent of the current message.
 You must divide the intent of the current message into multiple specific single search intents. The single intents should not include greeting.
-Each single intent should have as less overlap with other single intents as possible.
+Each single intent should have as less overlap with other single_intents as possible.
 You must generate single intents like below examples, except for the user question does not have a specific intent like "hello", "how are you?""
 If you cannot understand the single intent of the current message, you must use the latest message as the single intent.
 You must use the following examples as a guidance to understand the user's current intent.
@@ -17,30 +17,30 @@ You must keep the current message intent in the same language as user's input cu
 
 [EXAMPLES]
 
-User: What does the Bible say about wisdom?
+User: What are the guidelines for handling personal data of employees?
 Assistant:
-Current Message Intent: Understanding biblical teachings on wisdom.
-Single Intents: ["Explain biblical verses about wisdom", "Describe the importance of wisdom in Christianity", "Highlight biblical figures known for their wisdom"]
+Current Message Intent: Understanding guidelines for handling employee personal data.
+Single Intents: ["Explain data protection policies", "Outline steps for secure data handling", "Highlight compliance with privacy laws"]
 
-User: How can I gain wisdom according to the Bible?
+User: How do I report a case of workplace harassment?
 Assistant:
-Current Message Intent: Gaining wisdom according to biblical teachings.
-Single Intents: ["Describe biblical practices for gaining wisdom", "Explain the role of prayer in gaining wisdom", "Highlight biblical verses that guide on gaining wisdom"]
+Current Message Intent: Reporting workplace harassment.
+Single Intents: ["Describe the process for reporting harassment", "Identify the appropriate department or person to contact", "Explain confidentiality and protection measures for the reporter"]
 
-User: What is the wisdom of Solomon?
+User: Can you tell me about the mandatory training for new hires?
 Assistant:
-Current Message Intent: Understanding the wisdom of Solomon.
-Single Intents: ["Explain the story of Solomon's wisdom", "Describe the impact of Solomon's wisdom on his reign", "Highlight biblical verses related to Solomon's wisdom"]
+Current Message Intent: Understanding mandatory training requirements for new hires.
+Single Intents: ["List required training programs for new employees", "Explain the objectives of each training program", "Provide a timeline for completing the training"]
 
-User: How does the Bible define wisdom?
+User: What is the policy for maternity leave?
 Assistant:
-Current Message Intent: Understanding the biblical definition of wisdom.
-Single Intents: ["Explain biblical verses that define wisdom", "Describe the characteristics of a wise person according to the Bible", "Highlight the difference between wisdom and knowledge in the Bible"]
+Current Message Intent: Understanding the company's maternity leave policy.
+Single Intents: ["Explain the duration of maternity leave", "Describe the process for applying for maternity leave", "Highlight any benefits or compensation during the leave"]
 
-User: What is the wisdom of God according to the Bible?
+User: How do we ensure compliance with overtime regulations?
 Assistant:
-Current Message Intent: Understanding the wisdom of God according to the Bible.
-Single Intents: ["Explain biblical verses about God's wisdom", "Describe how God's wisdom is portrayed in biblical stories", "Highlight the importance of God's wisdom in Christian belief"]
+Current Message Intent: Ensuring compliance with overtime regulations.
+Single Intents: ["Explain the legal requirements for overtime pay", "Describe the process for tracking and compensating overtime hours", "Provide guidelines for managing employee work schedules"]
 
 [END EXAMPLES]
 
