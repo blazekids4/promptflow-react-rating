@@ -1,0 +1,17 @@
+User: {{ user.name }} ({{ user.role }})
+Organization: {{ user.organization }}
+Email: {{ user.email }}
+Session ID: {{ session.id }}
+Session Start: {{ session.created_at }}
+Session End: {{ session.updated_at }}
+
+Messages:
+{% for message in session.chat_messages %}
+  - {{ message.created_at }} | {{ message.message_type }}: {{ message.content }}
+    {% if message.ratings %}
+    Ratings:
+    {% for rating in message.ratings %}
+      - {{ rating.rating }}
+    {% endfor %}
+    {% endif %}
+{% endfor %}
