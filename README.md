@@ -2,6 +2,13 @@
 
 This project consists of a backend and frontend. The backend is written in Python and the frontend is a React application.
 
+## Screenshots of App
+![image](https://github.com/blazekids4/promptflow-react-rating/assets/45666337/1a5e637c-ce4d-4c92-a697-b3e15036a671)
+![image](https://github.com/blazekids4/promptflow-react-rating/assets/45666337/2a6c808d-3e39-4879-9374-f0c20ac2d980)
+![image](https://github.com/blazekids4/promptflow-react-rating/assets/45666337/1f4f3bd2-dd89-4119-985d-ab362bd92f89)
+### User Rating for LLM Response Captured in Database
+![image](https://github.com/blazekids4/promptflow-react-rating/assets/45666337/193eacc0-d5fa-4874-9139-3f409d0b1139)
+
 ## Demo
 [Demo on Youtube](https://youtu.be/V6fkkBlsQs0?si=Ud32C8qu-2qhcKUN)
 
