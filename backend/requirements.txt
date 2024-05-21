@@ -4,7 +4,7 @@ Flask_Cors==4.0.0
 Flask_SQLAlchemy==2.4.4
 promptflow==1.6.0
 promptflow_tools==1.2.0
-Requests==2.31.0
+Requests==2.32.0
 SQLAlchemy==2.0.25
 streamlit==1.31.1
 psycopg2-binary==2.9.9
